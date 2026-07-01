@@ -1,0 +1,17 @@
+{
+  "name": "spark-ai",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Spark AI - AI Productivity Platform",
+  "type": "module",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "test": "turbo run test"
+  },
+  "packageManager": "pnpm@11.9.0",
+  "devDependencies": {
+    "turbo": "^2.10.1"
+  }
+}
