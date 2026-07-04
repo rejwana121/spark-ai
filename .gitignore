@@ -20,3 +20,13 @@ __pycache__/
 
 # Logs
 *.log
+# Python
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/settings.json
+
+# OS
+.DS_Store
+Thumbs.db
