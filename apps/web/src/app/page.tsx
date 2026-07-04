@@ -1,33 +1,12 @@
-import Navbar from "@/components/navbar/Navbar";
-import Hero from "@/components/hero/Hero";
-import Features from "@/components/features/Features";
-import Stats from "@/components/stats/Stats";
-import { getHealth } from "@/lib/api";
+import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 
-export default async function Home() {
-  const health = await getHealth();
+export default async function HomePage() {
+  const { userId } = await auth();
 
-  return (
-    <main className="min-h-screen bg-[#0B1120] text-white">
-      <Navbar />
+  if (!userId) {
+    redirect("/sign-in");
+  }
 
-      <Hero />
-
-      <Features />
-
-      <Stats />
-
-      <section className="mx-auto max-w-7xl px-6 py-20">
-        <div className="rounded-2xl border border-green-500/20 bg-green-500/10 p-6">
-          <h2 className="text-2xl font-bold text-green-400">
-            Backend Status
-          </h2>
-
-          <p className="mt-3 text-lg">
-            Status: <strong>{health.status}</strong>
-          </p>
-        </div>
-      </section>
-    </main>
-  );
+  redirect("/dashboard");
 }
